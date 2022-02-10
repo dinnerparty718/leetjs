@@ -26,3 +26,7 @@ for (const [key, value] of Object.entries(person)) {
 for (const key of Object.keys(person)) {
   console.log(person[key])
 }
+
+
+// shallow clone
+const copied = { ...person }

@@ -70,7 +70,27 @@ const abc = [1, 5, 4, 3]
 
 abc.sort()
 
+//! sort, descending
+
+abc.sort((a, b) => b - a)
+
+
 
 // abc.sort((a, b) => b - a)
 abc.reverse()
 console.log(abc)
+
+
+//!  .some() .every()
+
+const my_array2 = [4, 5, 2, 7, 11]
+
+console.log(my_array2.every(item => item > 0))
+console.log(my_array2.some(item => item < 0))
+
+
+
+//! check item in array
+
+console.log(my_array2.includes(11))
+
