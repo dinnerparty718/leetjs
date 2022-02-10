@@ -1,0 +1,20 @@
+{
+  "name": "leetjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinnerparty718/leetjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinnerparty718/leetjs/issues"
+  },
+  "homepage": "https://github.com/dinnerparty718/leetjs#readme",
+  "type": "module"
+}
