@@ -94,3 +94,10 @@ console.log(my_array2.some(item => item < 0))
 
 console.log(my_array2.includes(11))
 
+
+//! initialize array
+
+
+const zeros = Array(n).fill(0)
+
+console.log(zeros)
