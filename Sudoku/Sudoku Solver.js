@@ -4,6 +4,7 @@
  */
 var solveSudoku = function (board) {
   const n = 9
+
   const generateSet = (n) => {
     const s = {}
     for (let i = 0; i < n; i++) {
