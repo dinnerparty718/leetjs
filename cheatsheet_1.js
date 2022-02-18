@@ -6,7 +6,7 @@ const size = arry.length
 arry.push(6); arry.pop()
 
 //! operation on the left
-arry.shift(); arry.unshift(1) 
+arry.shift(); arry.unshift(1)
 
 //! 2D
 const twoD = new Array(9).fill(0).map(() => new Array(9).fill(0))
@@ -14,5 +14,11 @@ const twoD = new Array(9).fill(0).map(() => new Array(9).fill(0))
 //! 4 direction right, down, left up
 const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
+//!loop
+
+
+for (const [i, val] of arry.entries()) {
+  console.log(i, val)
+}
 
 
