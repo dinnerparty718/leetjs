@@ -1,6 +1,10 @@
-//! https://dev.to/braeden/why-javascript-is-actually-a-great-leetcode-interview-language-34g1
 
 
-const grid = [[] ]
 
-console.log(grid)
+//! generate 2d array  n * n
+
+const matrix = new Array(5).fill(0).map(() => new Array(4).fill(0));
+
+console.log(matrix)
+
+

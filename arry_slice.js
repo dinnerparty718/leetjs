@@ -10,3 +10,7 @@ console.log(copies.slice(2))
 
 
 console.log([...copies.slice(0, 2), ...copies.slice(2)])
+
+
+
+

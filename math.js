@@ -17,3 +17,13 @@ const remainder = y % x;
 
 
 console.log(quotient, remainder)
+
+
+// square
+
+console.log(2 ** 3)
+// console.log(Math.pow(2, 3))
+
+console.log(16 ** 0.5)
+
+
