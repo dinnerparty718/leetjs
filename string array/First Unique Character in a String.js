@@ -1,3 +1,12 @@
+/*
+build hash map
+loop throught string
+return the first count that is 1
+
+
+*/
+
+
 /**
  * @param {string} s
  * @return {number}
