@@ -15,10 +15,13 @@ const twoD = new Array(9).fill(0).map(() => new Array(9).fill(0))
 const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
 //!loop
-
-
 for (const [i, val] of arry.entries()) {
   console.log(i, val)
 }
 
+//! extend arr
 
+const a = [1, 2, 3]; const b = [4, 5, 6]
+a.push(...b)
+
+console.log(a)
