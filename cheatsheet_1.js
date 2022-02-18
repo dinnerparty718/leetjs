@@ -24,4 +24,15 @@ for (const [i, val] of arry.entries()) {
 const a = [1, 2, 3]; const b = [4, 5, 6]
 a.push(...b)
 
-console.log(a)
+let unsorted = [12, 3, 4, 10]
+
+//! sort ascending
+//! negative if a < b 
+unsorted.sort((a, b) => a - b)
+
+
+unsorted = ['b', 'c', 'a']
+
+unsorted.sort((a, b) => b.localeCompare(a))
+
+
