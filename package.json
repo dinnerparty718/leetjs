@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dinnerparty718/leetjs/issues"
   },
-  "homepage": "https://github.com/dinnerparty718/leetjs#readme"
+  "homepage": "https://github.com/dinnerparty718/leetjs#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
