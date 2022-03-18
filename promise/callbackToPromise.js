@@ -1,3 +1,9 @@
+/**
+ * 
+ * Promises are used to handle asynchronous operations in javascript.
+ */
+
+
 wait = (ms) => {
   return new Promise((resolve, reject) => {
     if (ms <= 0) {
