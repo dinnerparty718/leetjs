@@ -11,6 +11,14 @@
  *
  * [object Map]
  * [object Set]
+ *
+ * Undefined；
+ * Null；
+ * Boolean；
+ * String；
+ * Number；
+ * Symbol；
+ * Object;
  */
 
 let obj = 'abc'; // [object String]
