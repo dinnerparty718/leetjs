@@ -154,14 +154,13 @@ Redux is a state management for cross-component or app-wide state
 - complex to setup: deeply nested JSX code and / or hange "context provider" components
 - performance
 
-
 ### Core Redux Concepts
 
 - Central Data (state) Store
 - the Store notify the components, they get slice of the store
 - components never direct manipulate the data, use **reducer** instead. different from `useReducer()`
 - Components trigger/Dispatch **actions**
-- 
-
-
-
+- **Never change existing state, always return new state** because object is reference value
+- use redux toolkits `npm install @reduxjs/toolkit` can uninstall `redux` package
+- with redux toolkits, we can directly modify the state
+- Redux Toolkit's `createReducer` and `createSlice` automatically use Immer internally to let you write simpler immutable update logic using "mutating" syntax. This helps simplify most reducer implementations.
