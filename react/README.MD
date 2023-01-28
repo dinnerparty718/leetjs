@@ -164,3 +164,11 @@ Redux is a state management for cross-component or app-wide state
 - use redux toolkits `npm install @reduxjs/toolkit` can uninstall `redux` package
 - with redux toolkits, we can directly modify the state
 - Redux Toolkit's `createReducer` and `createSlice` automatically use Immer internally to let you write simpler immutable update logic using "mutating" syntax. This helps simplify most reducer implementations.
+
+### Redux with Async Tasks
+
+- Reducer must be pure, side-effect free, **synchronous** functions
+- Where shjould side-effects and async tasks be executed? two places
+
+  - inside the components (that redux does not know)
+  - inside own action creators
