@@ -14,3 +14,6 @@ console.log([...copies.slice(0, 2), ...copies.slice(2)])
 
 
 
+for (const animal of animals) {
+  console.log(animal)
+}
