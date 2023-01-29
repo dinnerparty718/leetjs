@@ -165,10 +165,13 @@ Redux is a state management for cross-component or app-wide state
 - with redux toolkits, we can directly modify the state
 - Redux Toolkit's `createReducer` and `createSlice` automatically use Immer internally to let you write simpler immutable update logic using "mutating" syntax. This helps simplify most reducer implementations.
 
-### Redux with Async Tasks
+### Redux with Async Tasks (create action creators that returns an async function)
 
 - Reducer must be pure, side-effect free, **synchronous** functions
 - Where shjould side-effects and async tasks be executed? two places
 
   - inside the components (that redux does not know)
-  - inside own action creators
+  - inside own action creators **Thunk**
+  - a function that delays an action until later => return another function
+  - an action create function that does NOT return the action itself but another function which eventually returns the action
+  - `dispatch()` can accept object or a function
