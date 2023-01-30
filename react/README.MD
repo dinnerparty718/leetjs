@@ -175,3 +175,46 @@ Redux is a state management for cross-component or app-wide state
   - a function that delays an action until later => return another function
   - an action create function that does NOT return the action itself but another function which eventually returns the action
   - `dispatch()` can accept object or a function
+
+## Custom Hooks
+
+## React Router
+
+React Router (^6.8.0)
+`npm install react-router-dom`
+
+### Steps
+
+- Define Routes (**Object based** vs JSX)
+- Activate Router, load router
+
+```javascript
+
+// app.js
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { path: '/', element: <HomePage /> },
+  { path: '/product', element: <ProductPage /> },
+]);
+ ```
+
+- make sure we do have those routers and add navigations **Not sending HTTP request**
+
+
+```javascript
+// home.js
+import { Link} from 'react-router-dom';
+
+const HomePage = () => {
+  return <>
+    <h1>My Home Page</h1>
+    <p>Go to <Link to='/product'>The list of product</Link></p>
+  </>;
+};
+
+
+ ```
+
+ - Nested Routes
+
