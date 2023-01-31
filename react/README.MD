@@ -407,6 +407,8 @@ React Router (^6.8.0)
 
       ```
 
+  - Defer Loading, show whatever is available now
+
 - **Action** use react router to submit data
   
   - Each inputs in form needs to have a **name** attribute
@@ -425,3 +427,51 @@ React Router (^6.8.0)
   const isSubmitting =  navigation.state === 'submitting';
 
   ```
+
+- **useFetcher()** will not trigger route action/loader and don't **transition** to a different route
+
+  ```js
+
+  import { Suspense } from 'react';
+  import { useLoaderData, json, defer, Await } from 'react-router-dom';
+  import EventsList from '../components/EventsList';
+
+
+  async function loadEvents() {
+    const response = await fetch('http://localhost:8080/events');
+
+    console.log(response);
+
+    if (!response.ok) {
+      return json({ message: 'Could not fetch events' }, { status: 500 });
+    } else {
+      const resData = await response.json();
+      return resData.events;
+    }
+  }
+
+
+  function EventsPage() {
+    const { events } = useLoaderData();
+    return (
+      <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
+        <Await resolve={events}>
+          {(loadedEvents) => <EventsList events={loadedEvents} />}
+        </Await>
+      </Suspense>
+
+    );
+  }
+
+  export default EventsPage;
+
+
+  export function loader() {
+    return defer({
+      events: loadEvents() // return a promise
+    })
+  }
+
+  ```
+  
+- multiple action with different spped
