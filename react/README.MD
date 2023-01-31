@@ -328,3 +328,4 @@ const ProductPage = () => {
 ```js
       { index: true, element: <HomePage /> },
 ```
+
