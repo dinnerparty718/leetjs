@@ -50,18 +50,18 @@
 - `const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);`
 - update related states at the same time `emailState = {value:'', isValid: true}`;
 
-```JavaScript
-const { someProperty } = someObject;
-useEffect(() => {
-  // code that only uses someProperty ...
-}, [someProperty]);
+  ```JavaScript
+  const { someProperty } = someObject;
+  useEffect(() => {
+    // code that only uses someProperty ...
+  }, [someProperty]);
 
 
 
-useEffect(() => {
-  // code that only uses someProperty ...
-}, [someObject.someProperty]);
-````
+  useEffect(() => {
+    // code that only uses someProperty ...
+  }, [someObject.someProperty]);
+  ````
 
 ## Context
 
@@ -71,28 +71,28 @@ useEffect(() => {
 
   - not optimized for high frequency changes **use redux** instead
 
-```javascript
-//context creation
-React.createContext({
-isLoggedIn: false,
-})
+  ```javascript
+  //context creation
+  React.createContext({
+  isLoggedIn: false,
+  })
 
 
-// provide context
-<AuthContext.Provider>
-  <div></div>
-</AuthContext.Provider>
+  // provide context
+  <AuthContext.Provider>
+    <div></div>
+  </AuthContext.Provider>
 
-// consume context, 2 ways
+  // consume context, 2 ways
 
-// 1. listener
-<AuthContext.Consumer>
-</AuthContext.Consumer>
+  // 1. listener
+  <AuthContext.Consumer>
+  </AuthContext.Consumer>
 
-// 2. react hook (recommended way)
-const ctx = useContext(AuthContext);
+  // 2. react hook (recommended way)
+  const ctx = useContext(AuthContext);
 
- ```
+  ```
 
 ## Rules of hooks
 
@@ -188,117 +188,116 @@ React Router (^6.8.0)
 - Define Routes (**Object based** vs JSX)
 - Activate Router, load router
 
-```javascript
+  ```js
 
-// app.js
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+  // app.js
+  import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const router = createBrowserRouter([
-  { path: '/', element: <HomePage /> },
-  { path: '/product', element: <ProductPage /> },
-]);
- ```
+  const router = createBrowserRouter([
+    { path: '/', element: <HomePage /> },
+    { path: '/product', element: <ProductPage /> },
+  ]);
+  ```
 
 - make sure we do have those routers and add navigations **Not sending HTTP request**
 
-```javascript
-// home.js
-import { Link} from 'react-router-dom';
+  ```js
+  // home.js
+  import { Link} from 'react-router-dom';
 
-const HomePage = () => {
-  return <>
-    <h1>My Home Page</h1>
-    <p>Go to <Link to='/product'>The list of product</Link></p>
-  </>;
-};
+  const HomePage = () => {
+    return <>
+      <h1>My Home Page</h1>
+      <p>Go to <Link to='/product'>The list of product</Link></p>
+    </>;
+  };
 
-
- ```
+  ```
 
 - Nested Routes
 
-```javascript
+  ```js
 
-// Root.js
-import { Outlet } from 'react-router-dom';
-import MainNavigation from '../components/MainNavigations';
+  // Root.js
+  import { Outlet } from 'react-router-dom';
+  import MainNavigation from '../components/MainNavigations';
 
-const RootLayout = () => {
-  return <>
-    <MainNavigation />
-    <Outlet />
-  </>;
-};
+  const RootLayout = () => {
+    return <>
+      <MainNavigation />
+      <Outlet />
+    </>;
+  };
 
-export default RootLayout;
+  export default RootLayout;
 
-// app.js
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from './pages/Home';
-import ProductPage from './pages/Product';
-import RootLayout from './pages/Root';
+  // app.js
+  import { createBrowserRouter, RouterProvider } from "react-router-dom";
+  import HomePage from './pages/Home';
+  import ProductPage from './pages/Product';
+  import RootLayout from './pages/Root';
 
-const router = createBrowserRouter([
-  {
-    path: '/', element: <RootLayout />,
-  //  errorElement: <ErrorPage />
-    children: [
-      { path: '/', element: <HomePage /> },
-      { path: '/product', element: <ProductPage /> },
-    ]
-  },
+  const router = createBrowserRouter([
+    {
+      path: '/', element: <RootLayout />,
+    //  errorElement: <ErrorPage />
+      children: [
+        { path: '/', element: <HomePage /> },
+        { path: '/product', element: <ProductPage /> },
+      ]
+    },
 
-]);
- ```
+  ]);
+  ```
 
 - Default Error Page
 - NavLink: `<NavLink to="/" className={({ isActive }) => isActive ? classes.active : undefined} end>Home</NavLink>`
 
-```javascript
-import { NavLink } from 'react-router-dom';
-```
+  ```js
+  import { NavLink } from 'react-router-dom';
+  ```
 
 - Navigate Programtically
 
-```javascript
-import { Link, useNavigate } from 'react-router-dom';
+  ```js
+  import { Link, useNavigate } from 'react-router-dom';
 
-const HomePage = () => {
-  const navigate = useNavigate();
+  const HomePage = () => {
+    const navigate = useNavigate(); // change routes
 
-  // programatically navigate
-  const navigateHandler = () =>{
-    navigate('/product');
-  }
+    // programatically navigate
+    const navigateHandler = () =>{
+      navigate('/product');
+    }
 
-  return <>
-    <h1>My Home Page</h1>
-    <p>Go to <Link to='/product'>The list of product</Link></p>
-    <p><button onClick={navigateHandler}>Navigate</button></p>
-  </>;
-};
+    return <>
+      <h1>My Home Page</h1>
+      <p>Go to <Link to='/product'>The list of product</Link></p>
+      <p><button onClick={navigateHandler}>Navigate</button></p>
+    </>;
+  };
 
-```
+  ```
 
 - Dynamtic routes
 
-```javascript
-// define dynamic routes
-// path: '/products/:productId'
+  ```javascript
+  // define dynamic routes
+  // path: '/products/:productId'
 
-// get parameters
-import { useParams } from 'react-router-dom';
+  // get parameters
+  import { useParams } from 'react-router-dom';
 
-const ProductDetailPage = () => {
-  const params = useParams();
+  const ProductDetailPage = () => {
+    const params = useParams();
 
-  return <>
-    <h1>Product Details!</h1>
-    <p>{params.productId}</p>
-  </>;
-};
+    return <>
+      <h1>Product Details!</h1>
+      <p>{params.productId}</p>
+    </>;
+  };
 
-```
+  ```
 
 - Absolute vs Relative Routes
 
@@ -306,26 +305,123 @@ const ProductDetailPage = () => {
   - rules also apply to `<Link>` and `<NavLink>`
   - can set it relative to Route or URL
   
-```js
+    ```js
 
-const ProductPage = () => {
-  return <>
-    <h1>The Products Page</h1>
-    <ul>
-      {PRODUCTS.map(p => <li key={p.id} >
-        <Link to={`/products/${p.id}`}> {p.title} </Link>
-        {/* <Link to={p.id}> {p.title} </Link> */}
-      </li>)}
+    const ProductPage = () => {
+      return <>
+        <h1>The Products Page</h1>
+        <ul>
+          {PRODUCTS.map(p => <li key={p.id} >
+            <Link to={`/products/${p.id}`}> {p.title} </Link>
+            {/* <Link to={p.id}> {p.title} </Link> */}
+          </li>)}
 
-    </ul>
-  </>;
-};
+        </ul>
+      </>;
+    };
 
-```
+    ```
 
 - Index Routes
-
-```js
+  
+    ```js
       { index: true, element: <HomePage /> },
-```
+    ```
 
+- Route Order **Deos Not** Matter, react is smart enough
+
+  ```js
+
+  const router = createBrowserRouter([
+    { path: '/', element: <HomePage /> },
+    { path: '/events', element: <EventsPage /> },
+    { path: '/events/:eventId', element: <EventDetailPage /> },
+    { path: '/events/new', element: <NewEventPage /> },
+  ])
+
+  ```
+
+- **Loader** Use React Router to load initial data (first fetch Data then render the component)
+  
+  - when the loader get executed? after when navigatings
+  - How go get users some feedback? `useNavigation()` idle/loading/submitting
+
+    ```js
+
+    //index: true, element: <EventsPage />, loader: eventLoader
+
+    // useLoaderData is also available in the child components, but not parent components
+    import { useLoaderData, json } from 'react-router-dom';
+    import EventsList from '../components/EventsList';
+
+    function EventsPage() {
+
+      const data = useLoaderData();
+      if (data.isError) {
+        return <p>{data.message}</p>
+      }
+      const events = data.events;
+      return (
+        <EventsList events={events} />
+
+      );
+    }
+
+    export default EventsPage;
+
+    // loader can get dynamic routes params
+    export async function loader({ request, params }) {
+      const response = await fetch('http://localhost:8080/events');
+
+      if (!response.ok) {
+        return json({ message: 'Could not fetch events' }, { status: 500 });
+      } else {
+        return response;
+      }
+    }
+
+
+    // to share the same loader (view vs edit)
+
+              // {
+              //   path: ':eventId',
+              //   id: 'event-detail',
+              //   loader: eventDetailLoader,
+              //   children: [
+              //     { index: true, element: <EventDetailPage /> },
+              //     { path: 'edit', element: <EditEventPage /> },
+              //   ]
+              // }
+
+      import { useRouteLoaderData } from 'react-router-dom';
+
+      import EventForm from '../components/EventForm';
+
+      const EditEventPage = () => {
+        const data = useRouteLoaderData('event-detail'); // passing id here
+        const event = data.event;
+        return <EventForm event={event} />;
+      };
+
+      export default EditEventPage;
+
+      ```
+
+- **Action** use react router to submit data
+  
+  - Each inputs in form needs to have a **name** attribute
+  - `form` to `Form`
+
+  ```html
+
+    <Form method='post' action='any-other-path-action'></Form>
+  ```
+
+  - to submit from programatically `const submit = useSubmit();`
+  - to Check Routes status `const navigation = useNavigation()`
+
+  ```js
+
+  const isSubmitting =  navigation.state === 'submitting';
+
+  ```
