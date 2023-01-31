@@ -201,7 +201,6 @@ const router = createBrowserRouter([
 
 - make sure we do have those routers and add navigations **Not sending HTTP request**
 
-
 ```javascript
 // home.js
 import { Link} from 'react-router-dom';
@@ -216,5 +215,116 @@ const HomePage = () => {
 
  ```
 
- - Nested Routes
+- Nested Routes
 
+```javascript
+
+// Root.js
+import { Outlet } from 'react-router-dom';
+import MainNavigation from '../components/MainNavigations';
+
+const RootLayout = () => {
+  return <>
+    <MainNavigation />
+    <Outlet />
+  </>;
+};
+
+export default RootLayout;
+
+// app.js
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from './pages/Home';
+import ProductPage from './pages/Product';
+import RootLayout from './pages/Root';
+
+const router = createBrowserRouter([
+  {
+    path: '/', element: <RootLayout />,
+  //  errorElement: <ErrorPage />
+    children: [
+      { path: '/', element: <HomePage /> },
+      { path: '/product', element: <ProductPage /> },
+    ]
+  },
+
+]);
+ ```
+
+- Default Error Page
+- NavLink: `<NavLink to="/" className={({ isActive }) => isActive ? classes.active : undefined} end>Home</NavLink>`
+
+```javascript
+import { NavLink } from 'react-router-dom';
+```
+
+- Navigate Programtically
+
+```javascript
+import { Link, useNavigate } from 'react-router-dom';
+
+const HomePage = () => {
+  const navigate = useNavigate();
+
+  // programatically navigate
+  const navigateHandler = () =>{
+    navigate('/product');
+  }
+
+  return <>
+    <h1>My Home Page</h1>
+    <p>Go to <Link to='/product'>The list of product</Link></p>
+    <p><button onClick={navigateHandler}>Navigate</button></p>
+  </>;
+};
+
+```
+
+- Dynamtic routes
+
+```javascript
+// define dynamic routes
+// path: '/products/:productId'
+
+// get parameters
+import { useParams } from 'react-router-dom';
+
+const ProductDetailPage = () => {
+  const params = useParams();
+
+  return <>
+    <h1>Product Details!</h1>
+    <p>{params.productId}</p>
+  </>;
+};
+
+```
+
+- Absolute vs Relative Routes
+
+  - starting with `/` means absolute path, removing `/` to use relative paths
+  - rules also apply to `<Link>` and `<NavLink>`
+  - can set it relative to Route or URL
+  
+```js
+
+const ProductPage = () => {
+  return <>
+    <h1>The Products Page</h1>
+    <ul>
+      {PRODUCTS.map(p => <li key={p.id} >
+        <Link to={`/products/${p.id}`}> {p.title} </Link>
+        {/* <Link to={p.id}> {p.title} </Link> */}
+      </li>)}
+
+    </ul>
+  </>;
+};
+
+```
+
+- Index Routes
+
+```js
+      { index: true, element: <HomePage /> },
+```
