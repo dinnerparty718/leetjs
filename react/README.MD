@@ -474,4 +474,10 @@ React Router (^6.8.0)
 
   ```
   
-- multiple action with different spped
+- multiple action with different speed
+
+## Typescript
+
+- **superset** of javascript, adds static type to js
+
+### Basic Types
