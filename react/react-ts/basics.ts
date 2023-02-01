@@ -48,6 +48,39 @@ let course = 'Ract - the complte guild';
 let course2: string | number = 'hey';
 course2 = 2;
 
-let course3 : string | string [];
+let course3: string | string[];
 
 
+
+// type alis
+
+type Person = {
+  name: string,
+  age: number
+}
+
+let person3: Person;
+
+
+// function & type
+// inferred return value type
+function add(a: number, b: number): number | string {
+  return a + b;
+}
+
+//  void 
+function myPrint(value: any) {
+  console.log(value)
+}
+
+// Generics
+
+function insertAtBeginning<T>(array: T[], value: T) {
+  const newArray = [value, ...array];
+  return newArray;
+}
+
+const demoArray = [1, 2, 3];
+const updatedArray = insertAtBeginning(demoArray, -1);
+
+console.log(updatedArray)

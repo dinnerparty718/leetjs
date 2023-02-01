@@ -481,3 +481,8 @@ React Router (^6.8.0)
 - **superset** of javascript, adds static type to js
 
 ### Basic Types
+
+### typscript with react
+
+- `npx create-react-app myapp --template typescript`
+-
