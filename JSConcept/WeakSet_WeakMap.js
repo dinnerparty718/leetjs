@@ -5,7 +5,7 @@
  */
 
 
-//eakMap
+//weakMap
 
 
 

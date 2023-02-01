@@ -37,3 +37,17 @@ let people: {
   name: string,
   age: number
 }[]
+
+
+
+// Type inference: ts try to infer without deveoper instruction
+let course = 'Ract - the complte guild';
+
+
+// union types
+let course2: string | number = 'hey';
+course2 = 2;
+
+let course3 : string | string [];
+
+
