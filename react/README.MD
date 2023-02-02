@@ -482,6 +482,31 @@ React Router (^6.8.0)
 
 ### Basic Types
 
+- primitive types: number, boolean, void, undefined, string, symbol, null
+- object types: functions, arrays, classes, object
+- type Annotations: we tell TS the types
+  - when a function returns the 'any' type and we need to clarify the value
+  - when we declare a variable on the line when initialize it later
+  - when we want a varaible to have a type that can't be inferred
+- type Inference: TS guesses the types
+  - always
+- **functions**
+  - Type annotation: code we add to tell TS what type of arguments a function will receive and what type of values it will return
+  - TS tires to figure out what type of value a function will **return**
+- **Array**
+- **Tuple** array like structure where element represent some property of a record: mixed and match  (might not use them in TS)
+- **Interfaces**
+  - create a new type, descriptoing hte property names and value types of an object
+  - helps create reusable functions
+  - general startgey for resuable code in TS
+    - create function that accept arguments that are typed with interfaces
+    - object/classes can decide to 'implement' a given interface to work with a function
+- **class**
+  - modifiers
+    - public default
+    - private: this method can only be called by other methods in this class
+    - protected: this method can be called by other methods in this class, or by other methods in child classes
+    - 
 ### typscript with react
 
 - `npx create-react-app myapp --template typescript`
